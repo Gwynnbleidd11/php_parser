@@ -1,0 +1,9 @@
+<?php
+
+$array = [
+    'test' => [
+        'value' => 'hello'
+    ]
+];
+
+var_dump($array);

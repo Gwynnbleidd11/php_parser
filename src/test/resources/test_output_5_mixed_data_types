@@ -1,0 +1,13 @@
+<?php
+
+$array = [
+    'mixed' => [
+        'str' => 'sample',
+        'num' => 42,
+        'float' => 3.14,
+        'bool' => false,
+        'null' => null
+    ]
+];
+
+var_dump($array);

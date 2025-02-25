@@ -1,0 +1,26 @@
+<?php
+
+$array = [
+    'ET_B2B_LISTE1' => [
+        'item' => [
+            [
+                'KUNNR' => '0100999790',
+                'AUART' => 'ZTA',
+                'VBELN' => '0240554397',
+                'POSNR' => '000010',
+                'BOOL' => true,
+                'INT' => 13,
+                'FLOAT' => 13.2,
+                'NULL' => null
+            ],
+            [
+                'KUNNR' => '0100999790',
+                'AUART' => 'ZTA',
+                'VBELN' => '0240554397',
+                'POSNR' => '000020'
+            ]
+        ]
+    ]
+];
+
+var_dump($array);

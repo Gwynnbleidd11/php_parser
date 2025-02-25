@@ -1,0 +1,15 @@
+array(1) {
+  ["mixed"]=>
+  array(5) {
+    ["str"]=>
+    string(6) "sample"
+    ["num"]=>
+    int(42)
+    ["float"]=>
+    float(3.14)
+    ["bool"]=>
+    bool(false)
+    ["null"]=>
+    NULL
+  }
+}

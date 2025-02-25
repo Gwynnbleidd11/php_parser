@@ -1,6 +1,6 @@
 package com.php.parser.php.parser.controller;
 
-import com.php.parser.php.parser.service.PhpService;
+import com.php.parser.php.parser.service.ParserService;
 import com.php.parser.php.parser.service.ParserRequest;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/php_parser")
 public class PhpController {
 
-    private final PhpService phpService;
+    private final ParserService phpService;
 
-    public PhpController(PhpService parserService) {
+    public PhpController(ParserService parserService) {
         this.phpService = parserService;
     }
 

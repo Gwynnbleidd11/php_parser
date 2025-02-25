@@ -1,0 +1,32 @@
+{{#layout}}
+    <div class="container">
+        <textarea id="inputText" placeholder="Wklej var_dump() output..."></textarea>
+        <button id="convertButton">Konwertuj</button>
+        <textarea id="outputText" readonly></textarea>
+    </div>
+    <script>
+        const inputTextBox = document.querySelector("#inputText");
+        const outputTextBox = document.querySelector("#outputText");
+        const button = document.querySelector("#convertButton");
+
+        button.addEventListener("click", () => {
+          const inputData = inputTextBox.value;
+
+          fetch("/php_parser", {
+              method: "POST",
+              headers: {
+                "Content-Type": "text/plain"
+              },
+              body: inputData
+            })
+            .then(response => response.text())
+            .then(text => {
+              outputTextBox.value = text;
+            })
+            .catch(error => {
+              console.error("Error:", error);
+            });
+        });
+    </script>
+{{/layout}}
+{{>layout}}

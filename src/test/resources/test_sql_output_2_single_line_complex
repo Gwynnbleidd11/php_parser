@@ -1,0 +1,4 @@
+INSERT INTO users (id, name, active, score) VALUES (1, 'Alice', TRUE, 98.6),
+(2, 'Bob', FALSE, 76.3);
+INSERT INTO config (theme, notifications, version) VALUES ('dark', TRUE, 2.5);
+INSERT INTO meta (NULL) VALUES (NULL);

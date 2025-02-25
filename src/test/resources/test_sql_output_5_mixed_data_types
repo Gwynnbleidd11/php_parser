@@ -1,0 +1,1 @@
+INSERT INTO mixed (str, num, float, bool, null) VALUES ('sample', 42, 3.14, FALSE, NULL);

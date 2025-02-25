@@ -6,19 +6,19 @@ import com.php.parser.php.parser.strategy.SqlParser;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PhpService {
+public class ParserService {
 
 //    private final PhpParser parser;
     private final ParserContext context;
 
-    public PhpService(ParserContext context) {
+    public ParserService(ParserContext context) {
         this.context = context;
     }
 
     public String processVarDumpString(final String inputString, final UserChoice userChoice) {
         switch (userChoice) {
             case PHP -> context.setParseStrategy(new PhpParser());
-            case SQL -> context.setParseStrategy(new SqlParser());
+            case SQL -> context.setParseStrategy(new SqlParser(new PhpParser()));
         }
         return context.parseVarDump(inputString);
 

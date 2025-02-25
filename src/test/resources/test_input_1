@@ -1,0 +1,38 @@
+array(1) {
+  ["ET_B2B_LISTE1"]=>
+  array(1) {
+    ["item"]=>
+    array(2) {
+      [0]=>
+      array(8) {
+        ["KUNNR"]=>
+        string(10) "0100999790"
+        ["AUART"]=>
+        string(3) "ZTA"
+        ["VBELN"]=>
+        string(10) "0240554397"
+        ["POSNR"]=>
+        string(6) "000010"
+        ["BOOL"]=>
+        bool(true)
+        ["INT"]=>
+        int(13)
+        ["FLOAT"]=>
+        float(13.2)
+        ["NULL"]=>
+        NULL
+      }
+      [1]=>
+      array(4) {
+        ["KUNNR"]=>
+        string(10) "0100999790"
+        ["AUART"]=>
+        string(3) "ZTA"
+        ["VBELN"]=>
+        string(10) "0240554397"
+        ["POSNR"]=>
+        string(6) "000020"
+      }
+    }
+  }
+}

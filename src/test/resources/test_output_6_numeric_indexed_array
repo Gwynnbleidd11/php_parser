@@ -1,0 +1,11 @@
+<?php
+
+$array = [
+    'values' => [
+        'apple',
+        'banana',
+        'cherry'
+    ]
+];
+
+var_dump($array);

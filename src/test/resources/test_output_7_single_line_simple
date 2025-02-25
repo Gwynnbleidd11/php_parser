@@ -1,0 +1,13 @@
+<?php
+
+$array = [
+    'singleLine' => [
+        'item' => [
+            [
+                'key' => 'value'
+            ]
+        ]
+    ]
+];
+
+var_dump($array);

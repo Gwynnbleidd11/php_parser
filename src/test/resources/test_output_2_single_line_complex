@@ -1,0 +1,28 @@
+<?php
+
+$array = [
+    'users' => [
+        [
+            'id' => 1,
+            'name' => 'Alice',
+            'active' => true,
+            'score' => 98.6
+        ],
+        [
+            'id' => 2,
+            'name' => 'Bob',
+            'active' => false,
+            'score' => 76.3
+        ]
+    ],
+    'config' => [
+        'theme' => 'dark',
+        'notifications' => true,
+        'version' => 2.5
+    ],
+    'meta' => [
+        'NULL' => null
+    ]
+];
+
+var_dump($array);

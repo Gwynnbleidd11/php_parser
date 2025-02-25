@@ -15,6 +15,12 @@ import java.util.regex.Pattern;
 @Primary
 public class PhpParser implements ParseStrategy {
 
+//    private HelperClass helperClass;
+
+    private static class Index {
+        int i = 0;
+    }
+
     @Override
     public String parseVarDump(String input) {
         return toPhpCode(parseVarDumpString(input));
@@ -22,7 +28,7 @@ public class PhpParser implements ParseStrategy {
 
     public PhpValue parseVarDumpString(String input) {
         List<String> lines = preprocessInput(input);
-        Index index = new Index();
+        PhpParser.Index index = new PhpParser.Index();
         return parseValue(lines, index);
     }
 
@@ -121,9 +127,5 @@ public class PhpParser implements ParseStrategy {
         sb.append(";\n\n");
         sb.append("var_dump($array);");
         return sb.toString();
-    }
-
-    private static class Index {
-        int i = 0;
     }
 }
