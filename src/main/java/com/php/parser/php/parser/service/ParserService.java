@@ -6,6 +6,8 @@ import com.php.parser.php.parser.strategy.PhpOutput;
 import com.php.parser.php.parser.strategy.SqlOutput;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+
 @Service
 public class ParserService {
 
@@ -15,7 +17,7 @@ public class ParserService {
         this.context = context;
     }
 
-    public String processVarDumpString(final String inputString, final UserChoice userChoice) {
+    public String processVarDumpString(final String inputString, final UserChoice userChoice) throws IOException {
         switch (userChoice) {
             case PHP -> context.setParseStrategy(new PhpOutput());
             case SQL -> context.setParseStrategy(new SqlOutput());

@@ -15,7 +15,7 @@ public class ParseHelper {
         return parseValue(lines);
     }
 
-    private static List<String> preprocessInput(String input) {
+    static List<String> preprocessInput(String input) {
         String[] rawLines = input.split("\n");
         if (rawLines.length == 1) {
             input = input

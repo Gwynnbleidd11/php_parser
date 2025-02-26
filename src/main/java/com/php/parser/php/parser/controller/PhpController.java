@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.io.IOException;
+
 @Controller
 @RequestMapping("/php_parser")
 public class PhpController {
@@ -20,7 +22,7 @@ public class PhpController {
     }
 
     @PostMapping(consumes = MediaType.ALL_VALUE)
-    public ResponseEntity<String> parseVarDumpString(@RequestBody ParserRequest request) {
+    public ResponseEntity<String> parseVarDumpString(@RequestBody ParserRequest request) throws IOException {
         return ResponseEntity.ok(phpService.processVarDumpString(request.input(), request.userStrategy()));
     }
 }

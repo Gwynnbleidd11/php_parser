@@ -1,0 +1,19 @@
+<?php
+
+class {{className}} {
+
+{{#fields}}
+    private {{type}} ${{name}};
+{{/fields}}
+
+    {{#fields}}
+    public function get{{capitalizedName}}(): {{type}} {
+        return $this->{{name}};
+    }
+
+    public function set{{capitalizedName}}({{type}} ${{name}}): void {
+        $this->{{name}} = ${{name}};
+    }
+
+    {{/fields}}
+}
