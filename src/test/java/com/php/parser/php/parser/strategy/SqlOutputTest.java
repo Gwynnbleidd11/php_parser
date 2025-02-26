@@ -9,7 +9,7 @@ import java.nio.file.Path;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class SqlParserTest {
+class SqlOutputTest {
 
     private static void commonCode(String expectedInput, String expectedOutput) throws IOException {
         //Given
@@ -18,7 +18,7 @@ class SqlParserTest {
         String outputString = Files.readString(Path.of(expectedOutput),
                 StandardCharsets.UTF_8);
 //        SqlParser parser = new SqlParser(new VarDumpParser());
-        SqlParser parser = new SqlParser(new PhpParser());
+        SqlOutput parser = new SqlOutput();
 
         //When
         String parsedToSql = parser.parseVarDump(inputString);

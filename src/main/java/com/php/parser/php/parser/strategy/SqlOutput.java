@@ -7,19 +7,15 @@ import org.springframework.stereotype.Component;
 
 import java.util.*;
 
+import static com.php.parser.php.parser.strategy.ParseHelper.parseVarDumpString;
+
 @Component
-public class SqlParser implements ParseStrategy {
-
-    private final PhpParser parser;
-
-    public SqlParser(PhpParser parser) {
-        this.parser = parser;
-    }
+public class SqlOutput implements OutputStrategy {
 
     @Override
     public String parseVarDump(String inputString) {
         StringBuilder sqlString = new StringBuilder();
-        PhpValue rootValue = parser.parseVarDumpString(inputString);
+        PhpValue rootValue = parseVarDumpString(inputString);
         PhpArray rootArray = (PhpArray) rootValue;
 
         if (rootArray.getElements().isEmpty()) {

@@ -1,9 +1,8 @@
 package com.php.parser.php.parser.service;
 
-import com.php.parser.php.parser.strategy.ParseStrategy;
-import com.php.parser.php.parser.strategy.ParserContext;
-import com.php.parser.php.parser.strategy.PhpParser;
-import com.php.parser.php.parser.strategy.SqlParser;
+import com.php.parser.php.parser.strategy.OutputContext;
+import com.php.parser.php.parser.strategy.PhpOutput;
+import com.php.parser.php.parser.strategy.SqlOutput;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -22,7 +21,7 @@ class ParserServiceTest {
                 StandardCharsets.UTF_8);
         String outputString = Files.readString(Path.of("src/test/resources/test_output_1"),
                 StandardCharsets.UTF_8);
-        ParserContext parseContext = new ParserContext(new PhpParser());
+        OutputContext parseContext = new OutputContext(new PhpOutput());
         ParserService service = new ParserService(parseContext);
 
         //When
@@ -42,7 +41,7 @@ class ParserServiceTest {
                 StandardCharsets.UTF_8);
         String outputString = Files.readString(Path.of("src/test/resources/test_sql_output_1"),
                 StandardCharsets.UTF_8);
-        ParserContext parseContext = new ParserContext(new SqlParser(new PhpParser()));
+        OutputContext parseContext = new OutputContext(new SqlOutput());
         ParserService service = new ParserService(parseContext);
 
         //When

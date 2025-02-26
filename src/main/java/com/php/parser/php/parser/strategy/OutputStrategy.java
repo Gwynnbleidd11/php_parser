@@ -1,6 +1,6 @@
 package com.php.parser.php.parser.strategy;
 
-public interface ParseStrategy {
+public interface OutputStrategy {
 
     String parseVarDump(String input);
 }

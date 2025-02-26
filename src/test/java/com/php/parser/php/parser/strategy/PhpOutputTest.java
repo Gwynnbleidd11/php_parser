@@ -8,9 +8,10 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+import static com.php.parser.php.parser.strategy.ParseHelper.parseVarDumpString;
 import static org.junit.jupiter.api.Assertions.*;
 
-class PhpParserTest {
+class PhpOutputTest {
 
     private static void commonCode(String expectedInput, String expectedOutput) throws IOException {
         //Given
@@ -18,10 +19,10 @@ class PhpParserTest {
                 StandardCharsets.UTF_8);
         String outputString = Files.readString(Path.of(expectedOutput),
                 StandardCharsets.UTF_8);
-        PhpParser parser = new PhpParser();
+        PhpOutput parser = new PhpOutput();
 
         //When
-        PhpValue parsedArray = parser.parseVarDumpString(inputString);
+        PhpValue parsedArray = parseVarDumpString(inputString);
         String phpCode = parser.toPhpCode(parsedArray);
 
         //Then
