@@ -6,6 +6,12 @@ class {{className}} {
     private {{type}} ${{name}};
 {{/fields}}
 
+    function __construct({{#fields}}{{type}} ${{name}}{{separator}}{{/fields}}) {
+    {{#fields}}
+        $this->{{name}} = ${{name}};
+    {{/fields}}
+    }
+
     {{#fields}}
     public function get{{capitalizedName}}(): {{type}} {
         return $this->{{name}};

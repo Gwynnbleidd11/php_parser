@@ -3,30 +3,43 @@
         <textarea id="inputText" placeholder="Wklej var_dump() output..."></textarea>
         <button id="convertButton">Konwertuj</button>
         <textarea id="outputText" readonly></textarea>
+        <label for="category">Wybierz typ outputu:</label>
+        <select id="category">
+            <option value="PHP">PHP</option>
+            <option value="SQL">SQL</option>
+            <option value="PHP_CLASS">PHP_CLASS</option>
+        </select>
     </div>
     <script>
         const inputTextBox = document.querySelector("#inputText");
         const outputTextBox = document.querySelector("#outputText");
         const button = document.querySelector("#convertButton");
+        const categorySelect = document.querySelector("#category");
 
         button.addEventListener("click", () => {
-          const inputData = inputTextBox.value;
+        const inputData = inputTextBox.value;
+        const selectedCategory = categorySelect.value;
 
-          fetch("/php_parser", {
-              method: "POST",
-              headers: {
-                "Content-Type": "text/plain"
-              },
-              body: inputData
-            })
-            .then(response => response.text())
-            .then(text => {
-              outputTextBox.value = text;
-            })
-            .catch(error => {
-              console.error("Error:", error);
-            });
+        const requestData = {
+            input: inputData,
+            userStrategy: selectedCategory
+        };
+
+        fetch("/php_parser", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(requestData)
+        })
+        .then(response => response.text())
+        .then(text => {
+            outputTextBox.value = text;
+        })
+        .catch(error => {
+            console.error("Error:", error);
         });
+    });
     </script>
 {{/layout}}
 {{>layout}}

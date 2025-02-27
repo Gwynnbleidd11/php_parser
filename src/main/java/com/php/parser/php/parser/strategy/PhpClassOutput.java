@@ -22,9 +22,7 @@ public class PhpClassOutput implements OutputStrategy {
         if (input.trim().startsWith("array(0)")) {
             return "No data!";
         }
-
         PhpClassDefinition classDefinition = new PhpClassDefinition();
-
         Pattern classNamePattern = Pattern.compile("\\[\"(\\w+)\"\\]\\s*=>");
         Matcher classNameMatcher = classNamePattern.matcher(input);
         if (classNameMatcher.find()) {
@@ -44,7 +42,6 @@ public class PhpClassOutput implements OutputStrategy {
             }
             String typeIndicator = fieldMatcher.group(2);
             String phpType = mapPhpType(typeIndicator);
-
             if (!fieldTypes.containsKey(fieldName)) {
                 fieldTypes.put(fieldName, phpType);
             }
@@ -60,7 +57,6 @@ public class PhpClassOutput implements OutputStrategy {
         classDefinition.setFields(fields);
         MustacheFactory mf = new DefaultMustacheFactory();
         Mustache mustache = mf.compile("templates/phpclass/phpClass.mustache");
-
         StringWriter writer = new StringWriter();
         mustache.execute(writer, classDefinition).flush();
         return writer.toString();
